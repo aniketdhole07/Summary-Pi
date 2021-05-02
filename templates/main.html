@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary-Pi</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg');background-size: cover;height: 100%;overflow-y: scroll; overflow-x:hidden;" >
+        <style>
+        
+        .form-style-8{
+            font-family: 'Open Sans Condensed', arial, sans;
+            width: 500px;
+            padding: 30px;
+            background: #FFFFFF;
+            margin: 50px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+            -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+            -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+            }
+            
+            p {text-align: center;}
+            div {text-align: center;}
+            h1
+            {
+              font-size: 32px;
+              text-shadow: -1px -1px #0c0, -3px 0 4px #000;
+              font-family:Arial, Helvetica, sans-serif;
+              color: #000;
+              padding:16px;
+              font-weight:lighter;
+              -moz-box-shadow: 2px 2px 6px #888;  
+              -webkit-box-shadow: 1px 1px 3px #888;  
+              box-shadow:2px 2px 6px #888;  
+              text-align:center;
+              display:block;
+              margin:16px;
+              background-image:url(images/background-h1-wood.jpg);  
+            }
+            .button1 {
+            background-color: #4CAF50;
+            font-size: 20px;
+            border-radius: 8px;}
+        </style>
+        <h1><span>Type text that you want to summarize</span></h1>
+        
+        <div class="form-style-8">
+           <form action = "http://500af59740b8.ngrok.io/txt" method = "POST" enctype = "multipart/form-data">
+                <textarea  cols="40" rows="10" id='text' type = "text" name = "Text" placeholder="Enter Your Text ........" ></textarea>
+                <div class="all-buttons">
+                    <button class="button1" type="button" id="clear" name="clear"
+                        onclick="document.getElementById('text').value='' ">Clear</button>
+                    <button class="button1" type="submit" id="submit" name="submit"
+                        onclick="document.getElementById('output').innerHTML='Loading.... '">Submit</button>
+                </div>
+                </form>
+             
+        </div>
+        
+        <h1><span>Upload your file to get summary about file...</span></h1>
+
+        <div class="custom-file-upload form-style-8">
+            <form action = "http://500af59740b8.ngrok.io/upload" method = "POST" enctype = "multipart/form-data">
+                <input id="file" type = "file" name = "File" />
+                <div class="all-buttons">
+                    <button class="button1" type="button" id="clear" name="clear"
+                        onclick="document.getElementById('file').value='' ">Clear</button>
+                    <button class="button1"  type="submit" id="submit" name="submit"
+                        onclick="document.getElementById('output').innerHTML='Loading.... '">Submit</button>
+                </div>
+             </form>
+
+        </div>
+    </form>
+    <h1>This is your Summarized Text</h1>
+    <div class="text-output form-style-8">
+        
+        <p class="output" id="output">{{summary}}</p>
+        <br>
+    </div>
+</body>
+
+
+</html>
